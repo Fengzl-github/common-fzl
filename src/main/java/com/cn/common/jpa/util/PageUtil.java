@@ -31,11 +31,16 @@ public class PageUtil {
 
         //默认采用正序排序
         if (myString.isNotEmpty(field)){
-            String[] split = field.split(" ");
-            if (split[1].equals("desc")){
-                sort = Sort.by(Sort.Direction.DESC, split[0]);
+            if (field.contains(" ")){
+                String[] split = field.split(" ");
+                if (split[1].equals("desc")){
+                    sort = Sort.by(Sort.Direction.DESC, split[0]);
+                }else {
+                    sort = Sort.by(Sort.Direction.ASC, split[0]);
+                }
+            }else {
+                sort = Sort.by(Sort.Direction.ASC, field);
             }
-            sort = Sort.by(Sort.Direction.ASC, split[0]);
         }
 
         return PageRequest.of(currentPage, pagesize, sort);
