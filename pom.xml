@@ -48,12 +48,13 @@
       <artifactId>fastjson</artifactId>
       <version>${fastjson.version}</version>
     </dependency>
+    <!-- http -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.5</version>
+    </dependency>
 
-    <!--<dependency>
-      <groupId>jakarta.persistence</groupId>
-      <artifactId>jakarta.persistence-api</artifactId>
-      <version>2.2.3</version>
-    </dependency>-->
 <!--    数据库加密-->
     <dependency>
       <groupId>com.github.ulisesbocchio</groupId>
