@@ -151,14 +151,4 @@ public class FTPUtil {
         return flag;
     }
 
-    public static void main(String[] args) {
-
-        String hostname = "172.16.200.31:21";
-        boolean bool = upLoadFile(hostname, "test", "123456", "test1", "C:\\Users\\13982\\Pictures\\Saved Pictures\\5.jpeg");
-        System.out.println(bool);
-        /*boolean b = downLoadFile(hostname, "", "", "test1/2.jpg", "D://测试下载/1");
-        System.out.println(b);*/
-
-
-    }
 }
