@@ -65,13 +65,4 @@ public enum ResCode implements ResResult {
         return null;
     }
 
-    @Override
-    public Integer getPushCode() {
-        return this.pushCode;
-    }
-
-    @Override
-    public void setPushCode(Integer pushCode) {
-        this.pushCode = pushCode;
-    }
 }

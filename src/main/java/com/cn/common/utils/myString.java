@@ -2,7 +2,6 @@ package com.cn.common.utils;
 
 import com.sun.istack.internal.Nullable;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -18,33 +17,33 @@ import java.util.regex.Pattern;
 public class myString {
 
     /**
-     * @return boolean
      * @Author fengzhilong
      * @Desc //TODO 判断是否为空
      * @Date 2020/10/10 10:43
-     * @Param [strTemp]
+     * @param strTemp
+     * @return boolean
      **/
     public static boolean isEmpty(@Nullable Object strTemp) {
         return ("".equals(strTemp) || strTemp == null);
     }
 
     /**
-     * @return boolean
      * @Author fengzhilong
      * @Desc //TODO 判断不为空
      * @Date 2020/10/10 10:44
-     * @Param [strTemp]
+     * @param strTemp
+     * @return boolean
      **/
     public static boolean isNotEmpty(String strTemp) {
         return !isEmpty(strTemp);
     }
 
     /**
-     * @return java.lang.String
      * @Author fengzhilong
      * @Desc //TODO 生成n位随机数
      * @Date 2020/10/10 11:13
-     * @Param [len]
+     * @param len
+     * @return java.lang.String
      **/
     public static String getRandom(int len) {
 
@@ -94,11 +93,11 @@ public class myString {
 
 
     /**
-     * @return boolean
      * @Author fengzhilong
      * @Desc //TODO 判断手机号是否合法
      * @Date 2020/10/12 13:56
-     * @Param [mobile]
+     * @param mobile
+     * @return boolean
      **/
     public static boolean isPhoneNumber(String mobile) {
         String regex = "^((13[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$";
@@ -109,11 +108,11 @@ public class myString {
     }
 
     /**
-     * @return boolean
      * @Author fengzhilong
      * @Desc //TODO 判断邮箱地址是否合法
-     * @Date 2020/10/12 13:58
-     * @Param [email]
+     * @Date 2020/12/9 14:09
+     * @param email
+     * @return boolean
      **/
     public static boolean isEmail(String email) {
         String regex = "^[A-Za-z\\d]+([-_.][A-Za-z\\d]+)*@([A-Za-z\\d]+[-.])+[A-Za-z\\d]{2,4}$";
@@ -124,11 +123,11 @@ public class myString {
     }
 
     /**
-     * @return java.lang.String
      * @Author fengzhilong
      * @Desc //TODO base64编码
-     * @Date 2020/10/19 10:16
-     * @Param [pwd]
+     * @Date 2020/12/9 14:09
+     * @param pwd
+     * @return java.lang.String
      **/
     public static String base64Encode(String pwd) {
         Base64.Encoder encoder = Base64.getEncoder();
@@ -144,11 +143,11 @@ public class myString {
     }
 
     /**
-     * @return java.lang.String
      * @Author fengzhilong
      * @Desc //TODO base64解码
-     * @Date 2020/10/19 10:16
-     * @Param [encode]
+     * @Date 2020/12/9 14:09
+     * @param encode
+     * @return java.lang.String
      **/
     public static String base64Decode(String encode) {
         System.out.println("encode== " + encode);
@@ -164,11 +163,11 @@ public class myString {
     }
 
     /**
-     * @return java.lang.String
      * @Author fengzhilong
      * @Desc //TODO md5编码16位
-     * @Date 2020/10/19 10:34
-     * @Param [pwd]
+     * @Date 2020/12/9 14:10
+     * @param pwd
+     * @return java.lang.String
      **/
     public static String MD5Encode(String pwd) {
         MessageDigest md = null;

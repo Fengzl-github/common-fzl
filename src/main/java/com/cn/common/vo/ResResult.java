@@ -17,8 +17,4 @@ public interface ResResult {
 
     Object removeData(String key);
 
-
-    Integer getPushCode();
-
-    void setPushCode(Integer code);
 }

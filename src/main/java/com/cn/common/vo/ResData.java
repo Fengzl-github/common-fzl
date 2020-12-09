@@ -12,7 +12,6 @@ public class ResData implements ResResult {
     private Integer code;
     private String msg;
     private Object data;
-    private Integer pushCode;
 
     public static ResData ok() {
         return new ResData(ResCode.OK);
@@ -93,15 +92,6 @@ public class ResData implements ResResult {
         this.msg = resCode.getMsg();
     }
 
-    @Override
-    public Integer getPushCode() {
-        return this.pushCode;
-    }
-
-    @Override
-    public void setPushCode(Integer pushCode) {
-        this.pushCode = pushCode;
-    }
 
 
 }
