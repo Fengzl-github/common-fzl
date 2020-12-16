@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * @Date 2020/10/10 10:38
  * @Desc //TODO 字符串工具类
  **/
-public class myString {
+public class MyString {
 
     /**
      * @Author fengzhilong
@@ -53,43 +53,32 @@ public class myString {
     }
 
 
-    /*public static String Format(String strFormat, Object... args){
-
+    /**
+     * @Author fengzhilong
+     * @Desc 拼接字符串
+     * @Date 2020/12/16 17:33
+     * @param strFormat
+     * @param args
+     * @return java.lang.String
+     **/
+    public static String Format(String strFormat, Object... args) {
         String strReturn = strFormat;
-        if (isNotEmpty(strFormat) && strFormat.indexOf(123) >= 0){
-            int strFormat1 = 0;
+        /*indexOf(123) int值表示它的ASCII  a-97 123-{*/
+        if (isNotEmpty(strFormat) && strFormat.indexOf(123) > 0) {
+
+            int x = 0;
             int len = args.length;
 
-            for(int i = 0; i < len; ++i) {
-                Object obj;
-                if ((obj = args[i]) != null) {
-                    Match match;
-                    if ((match = Regex.Match(strReturn = strReturn.replace("{" + strFormat1 + "}", obj.toString()), "(\\{" + strFormat1 + ":0+\\})")).Success) {
-                        String var7 = obj.getClass().toString();
-                        int var8 = Functions.Substring(match.Value, ":", "}").length();
-                        byte var9 = -1;
-                        switch(var7.hashCode()) {
-                            case -1066470206:
-                                if (var7.equals("class java.lang.Integer")) {
-                                    var9 = 0;
-                                }
-                            default:
-                                switch(var9) {
-                                    case 0:
-                                        String var11 = String.format("%0" + var8 + "d", obj);
-                                        strReturn = strReturn.replace(match.Value, var11);
-                                }
-                        }
-                    }
-                } else {
-                    strReturn = strReturn.replace("{" + strFormat1 + "}", "(null)");
+            for (int i = 0; i < args.length; i++) {
+                Object arg = args[i];
+                if (arg != null) {
+                    strReturn = strReturn.replace("{" + x + "}", arg.toString());
                 }
-
-                ++strFormat1;
+                x++;
             }
         }
         return strReturn;
-    }*/
+    }
 
 
     /**

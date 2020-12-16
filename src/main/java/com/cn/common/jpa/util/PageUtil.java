@@ -1,6 +1,6 @@
 package com.cn.common.jpa.util;
 
-import com.cn.common.utils.myString;
+import com.cn.common.utils.MyString;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -30,7 +30,7 @@ public class PageUtil {
         }
 
         //默认采用正序排序
-        if (myString.isNotEmpty(field)){
+        if (MyString.isNotEmpty(field)){
             if (field.contains(" ")){
                 String[] split = field.split(" ");
                 if (split[1].equals("desc")){
