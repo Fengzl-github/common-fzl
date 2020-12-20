@@ -32,7 +32,7 @@ public class DownloadExcel {
 
             response.reset();
 
-            String headStr = "attachment; filename=" + fileName + URLEncoder.encode(DateTime.date2Str(new Date(), "yyyyMMddHHmmss") + ".xlsx", "utf-8");
+            String headStr = "attachment; filename=" + URLEncoder.encode(fileName+ DateTime.date2Str(new Date(), "yyyyMMddHHmmss") + ".xlsx", "utf-8");
             response.setContentType("application/vnd.ms-excel;charset=UTF-8");
             response.setHeader("Content-Disposition", headStr);
 

@@ -1,6 +1,7 @@
 package com.cn.common.utils;
 
-import com.sun.istack.internal.Nullable;
+
+import org.springframework.lang.Nullable;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
