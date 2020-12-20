@@ -18,23 +18,37 @@ public class DateTime extends Date {
 
     private static final long serialVersionUID = 1L;
 
-    public DateTime(){
+    public DateTime() {
         System.currentTimeMillis();
     }
 
-    public DateTime(long date){
+    public DateTime(long date) {
         setTime(date);
     }
 
-    public DateTime(int nYear, int nMonth, int nDay, int nHour, int nMin, int nSec){
-        Calendar calendar ;
+    public DateTime(int nYear, int nMonth, int nDay, int nHour, int nMin, int nSec) {
+        Calendar calendar;
         (calendar = getInstance()).set(nYear, nMonth - 1, nDay, nHour, nMin, nSec);
         long date = calendar.getTimeInMillis();
 
         setTime(date);
     }
 
-    public String ToString(){
+    public static String date2Str(Date date) {
+
+        return date2Str(date, "yyyy-MM-dd HH:mm:ss");
+    }
+
+    public static String date2Str(Date date, String pattern) {
+        String strDate = "";
+        if (date != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+            strDate = sdf.format(date);
+        }
+        return strDate;
+    }
+
+    public String ToString() {
         String pattern = "yyyy-MM-dd HH:mm:ss";
 
         return (new SimpleDateFormat(pattern)).format(this);
@@ -46,25 +60,25 @@ public class DateTime extends Date {
      * @Date 2020/10/10 13:56
      * @Param [pattern] t/T/Time/Date/DateTime
      * @return java.lang.String
-    **/
-    public String ToString(String pattern){
+     **/
+    public String ToString(String pattern) {
 
         pattern = getMergeFormat(pattern);
         return (new SimpleDateFormat(pattern)).format(this);
     }
 
-    public static DateTime Now(){
+    public static DateTime Now() {
         return new DateTime();
     }
 
-   /**
-    * @Author fengzhilong
-    * @Desc //TODO 格式转换
-    * @Date 2020/10/10 14:07
-    * @Param [strDateTime, format, formatter]
-    * @return java.lang.String
-   **/
-    public static String Format(String strDateTime, String format, String formatter){
+    /**
+     * @Author fengzhilong
+     * @Desc //TODO 格式转换
+     * @Date 2020/10/10 14:07
+     * @Param [strDateTime, format, formatter]
+     * @return java.lang.String
+     **/
+    public static String Format(String strDateTime, String format, String formatter) {
         String strDate = "";
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         try {
@@ -79,16 +93,14 @@ public class DateTime extends Date {
     }
 
 
-
-
     /**
      * @Author fengzhilong
      * @Desc //TODO 特定日期时间格式转换
      * @Date 2020/10/10 13:38
      * @Param [format]
      * @return java.lang.String
-    **/
-    public String getMergeFormat(String format){
+     **/
+    public String getMergeFormat(String format) {
 
         String formatter = format;
         String regEx = "^(d|f|g|m|r|R|s|U|t|T|Date|Time|DateTime)$";
@@ -97,21 +109,21 @@ public class DateTime extends Date {
 
         Matcher matcher = pattern.matcher(format);
 
-        if (matcher.find()){
-            if (format.equals("t")){
+        if (matcher.find()) {
+            if (format.equals("t")) {
                 formatter = "mm:ss";
-            } else if (format.equals("T")){
+            } else if (format.equals("T")) {
                 formatter = "HH:mm:ss";
-            } else if (format.equals("Date")){
+            } else if (format.equals("Date")) {
                 formatter = "yyyy-MM-dd";
-            } else if (!format.equals("T") && format.equals("Time")){
-                if (format.equals("DateTime")){
+            } else if (!format.equals("T") && format.equals("Time")) {
+                if (format.equals("DateTime")) {
                     formatter = "yyyy-MM-dd HH:mm:ss";
                 }
-            }else {
+            } else {
                 formatter = "HH:mm:ss";
             }
-        }else {
+        } else {
             formatter = format.replaceAll("f", "S");
         }
 
