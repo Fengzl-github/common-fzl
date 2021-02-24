@@ -7,8 +7,8 @@ package com.cn.common.vo;
  **/
 public enum ResCode implements ResResult {
     OK(200, "操作成功"),
-    ERROR(-1, "请求失败，请稍后重试");
-
+    ERROR(-1, "请求失败，请稍后重试"),
+    PARAM_VERIFY_FAILED(2001,"参数校验异常");
     private Integer code;
     private String msg;
 
