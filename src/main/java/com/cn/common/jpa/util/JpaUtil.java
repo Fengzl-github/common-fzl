@@ -67,6 +67,22 @@ public class JpaUtil {
     }
 
 
+    public <T> List<T>list(String sql, Map<String, Object> params, Class<T> requiredType){
+
+        Query query = this.em.createQuery(sql);
+        if (params != null){
+            Iterator<String> iterator = params.keySet().iterator();
+
+            while (iterator.hasNext()){
+                String key = iterator.next();
+                query.setParameter(key, params.get(key));
+            }
+        }
+
+        return query.getResultList();
+    }
+
+
     private static Long executeCountQuery(TypedQuery<Long> query) {
         Assert.notNull(query, "TypedQuery must not be null!");
         List<Long> totals = query.getResultList();
