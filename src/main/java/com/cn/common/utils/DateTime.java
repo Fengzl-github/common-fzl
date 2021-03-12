@@ -48,6 +48,29 @@ public class DateTime extends Date {
         return strDate;
     }
 
+    /**
+     * @Author fengzhilong
+     * @Desc  string转date
+     * @Date 2021/3/12 11:34
+     * @param strDate 时间字符串
+	 * @param pattern 格式 ""默认 yyyy-MM-dd HH:mm:ss
+     * @return java.util.Date
+     **/
+    public static Date parse(String strDate, String pattern){
+        if (MyString.isNotEmpty(strDate)){
+
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern.equals("") ? "yyyy-MM-dd HH:mm:ss" : pattern);
+            try {
+                return sdf.parse(strDate);
+            } catch (ParseException e) {
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
+
     public String ToString() {
         String pattern = "yyyy-MM-dd HH:mm:ss";
 
