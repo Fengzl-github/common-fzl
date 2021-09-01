@@ -64,13 +64,15 @@ public class MyString {
      **/
     public static String Format(String strFormat, Object... args) {
         String strReturn = strFormat;
-        /*indexOf(123) int值表示它的ASCII  a-97 123-{*/
-        if (isNotEmpty(strFormat) && strFormat.indexOf(123) > 0) {
+
+        String pattern = "\\{[0-9]+\\}";
+        Pattern c = Pattern.compile(pattern);
+        Matcher m = c.matcher(strFormat);
+        if (isNotEmpty(strFormat) && m.find()) {
 
             int x = 0;
             int len = args.length;
-
-            for (int i = 0; i < args.length; i++) {
+            for (int i = 0; i < len; i++) {
                 Object arg = args[i];
                 if (arg != null) {
                     strReturn = strReturn.replace("{" + x + "}", arg.toString());
